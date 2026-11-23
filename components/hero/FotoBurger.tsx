@@ -99,7 +99,7 @@ export default function FotoBurger({ ctl, input, stage, mobile }: Props) {
   const texs = useTexture(ORDEM.map((n) => `/img/burger/${n}.webp`));
   const brilho = useMemo(() => spriteTexture(), []);
 
-  const altura = mobile ? 4.7 : 3.2; // altura do hambúrguer em unidades do mundo
+  const altura = mobile ? 4.7 : 3.05; // altura do hambúrguer em unidades do mundo
   const k = altura / LH;
   const largura = LW * k;
 
@@ -184,7 +184,7 @@ export default function FotoBurger({ ctl, input, stage, mobile }: Props) {
     const Hv = mobile ? 5.5 / aspect : Math.max(6.3, 8.6 / aspect);
     const cam = camera as THREE.PerspectiveCamera;
     const dist = Hv / 2 / Math.tan((cam.fov * Math.PI) / 360);
-    const ty = mobile ? -1.15 : 0.1;
+    const ty = mobile ? -1.15 : 0.03;
     cam.position.set(0, ty, dist);
     cam.lookAt(0, ty, 0);
     cam.updateMatrixWorld();
