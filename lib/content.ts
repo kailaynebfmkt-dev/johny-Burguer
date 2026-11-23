@@ -109,15 +109,15 @@ export const HISTORIA = {
     },
     {
       quando: "Centro",
-      titulo: "Ponto na Fernando Amaral",
+      titulo: "Ponto na Av. Fernando Amaral",
       texto:
-        "A marca marcou presença na Fernando Amaral, 291, incluindo atuação vinculada ao Villa Manggiare, e firmou o nome no Centro de Tramandaí.",
+        "A marca marcou presença na Av. Fernando Amaral, 291, incluindo atuação vinculada ao Villa Manggiare, e firmou o nome no Centro de Tramandaí.",
     },
     {
       quando: "Julho de 2025",
       titulo: "Casa nova, no 301",
       texto:
-        "A abertura da nova casa na Fernando Amaral, 301, foi celebrada com música ao vivo e chopp.",
+        "A abertura da nova casa na Av. Fernando Amaral, 301, foi celebrada com música ao vivo e chopp.",
     },
     {
       quando: "Hoje",
@@ -145,8 +145,8 @@ export const CONTATO = {
   titulo: "BATEU A FOME?",
   pedir: "FAZER PEDIDO",
   falar: "FALE COM A GENTE",
-  endereco: "Rua Fernando Amaral, 301 — Centro, Tramandaí/RS",
-  mapa: "https://www.google.com/maps/search/?api=1&query=Rua+Fernando+Amaral+301+Tramanda%C3%AD+RS",
+  endereco: "Av. Fernando Amaral, 301 — Centro, Tramandaí/RS",
+  mapa: "https://www.google.com/maps/search/?api=1&query=Avenida+Fernando+Amaral+301+Tramanda%C3%AD+RS",
   mapaTexto: "Ver no Google Maps",
   horario: "[INSERIR HORÁRIO]",
 };

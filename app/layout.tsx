@@ -47,7 +47,7 @@ const jsonLd = {
   url: SITE_URL,
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Rua Fernando Amaral, 301",
+    streetAddress: "Av. Fernando Amaral, 301",
     addressLocality: "Tramandaí",
     addressRegion: "RS",
     addressCountry: "BR",

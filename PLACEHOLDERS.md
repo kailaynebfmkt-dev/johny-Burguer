@@ -1,6 +1,6 @@
 # Pendências do cliente — Johny Burger
 
-- [x] **Endereço** informado pelo cliente: Rua Fernando Amaral, 301, Centro, Tramandaí/RS (`CONTATO.endereco`). O texto da história fala em "Av."; confirmar se é Rua ou Avenida.
+- [x] **Endereço** informado pelo cliente: Av. Fernando Amaral, 301, Centro, Tramandaí/RS (`CONTATO.endereco`), confirmado pelo cliente.
 - [ ] **Horário de funcionamento** (não confirmado: buscas indicaram algo como 18h–00h no Instagram e abertura às 17h no iFood, sem dias da semana) → `lib/content.ts` (`CONTATO.horario`, hoje `[INSERIR HORÁRIO]`)
 - [ ] **Nome do burger de bacon** → `lib/content.ts` (`CARDAPIO.itens[0].nome`). Foi usado "BACON CARAMELIZADO", tirado do nome do arquivo da foto. Confirmar.
 - [ ] **Domínio final** → `SITE_URL` em `lib/content.ts` (usado no Open Graph).
