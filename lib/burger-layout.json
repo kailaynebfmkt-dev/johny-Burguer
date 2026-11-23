@@ -1,45 +1,53 @@
 {
-  "largura": 974,
-  "altura": 1039,
+  "largura": 969,
+  "altura": 1328,
   "camadas": [
     {
       "nome": "pao-baixo",
       "arquivo": "/img/burger/pao-baixo.webp",
-      "w": 735,
-      "h": 182,
-      "x": 119,
-      "y": 857
+      "w": 739,
+      "h": 220,
+      "x": 117,
+      "y": 1108
     },
     {
       "nome": "carne-baixo",
       "arquivo": "/img/burger/carne-baixo.webp",
-      "w": 811,
-      "h": 240,
-      "x": 87,
-      "y": 708
+      "w": 863,
+      "h": 266,
+      "x": 62,
+      "y": 902
     },
     {
       "nome": "carne-cima",
       "arquivo": "/img/burger/carne-cima.webp",
-      "w": 811,
-      "h": 213,
-      "x": 87,
-      "y": 550
+      "w": 865,
+      "h": 242,
+      "x": 61,
+      "y": 720
     },
     {
-      "nome": "bacon-cebola",
-      "arquivo": "/img/burger/bacon-cebola.webp",
-      "w": 974,
-      "h": 493,
+      "nome": "bacon",
+      "arquivo": "/img/burger/bacon.webp",
+      "w": 969,
+      "h": 309,
       "x": 0,
-      "y": 194
+      "y": 527
+    },
+    {
+      "nome": "cebola",
+      "arquivo": "/img/burger/cebola.webp",
+      "w": 899,
+      "h": 297,
+      "x": 37,
+      "y": 325
     },
     {
       "nome": "pao-cima",
       "arquivo": "/img/burger/pao-cima.webp",
-      "w": 757,
-      "h": 257,
-      "x": 118,
+      "w": 831,
+      "h": 469,
+      "x": 79,
       "y": 0
     }
   ]

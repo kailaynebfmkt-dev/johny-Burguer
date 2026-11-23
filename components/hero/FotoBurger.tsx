@@ -20,24 +20,24 @@ export type Input = { px: number; py: number; dx: number; drag: boolean };
 export type Stage = { labels: (HTMLElement | null)[]; lines: (SVGLineElement | null)[]; w: number[] };
 
 /* ------------------------------------------------------------ camadas (ordem de baixo para cima) */
-const ORDEM = ["pao-baixo", "carne-baixo", "carne-cima", "bacon-cebola", "pao-cima"] as const;
+const ORDEM = ["pao-baixo", "carne-baixo", "carne-cima", "bacon", "cebola", "pao-cima"] as const;
 type Nome = (typeof ORDEM)[number];
 
 /** Quando cada camada é solta (s). Tudo termina em ~5 s. */
-const T: Record<Nome, number> = { "pao-baixo": 0.0, "carne-baixo": 0.85, "carne-cima": 1.65, "bacon-cebola": 2.5, "pao-cima": 3.55 };
+const T: Record<Nome, number> = { "pao-baixo": 0.0, "carne-baixo": 0.8, "carne-cima": 1.55, bacon: 2.3, cebola: 3.0, "pao-cima": 3.75 };
 const G = 40; // gravidade
 
 /* Etiquetas: aparecem quando a camada pousa, ligadas por uma linha fina laranja. */
 export const LABELS = [
-  { txt: "PÃO BRIOCHE", cam: "pao-baixo", fy: 0.6, side: 1, desktop: true },
-  { txt: "SMASH 120G", cam: "carne-baixo", fy: 0.42, side: 1, desktop: false },
-  { txt: "CHEDDAR", cam: "carne-baixo", fy: 0.3, side: -1, desktop: true },
-  { txt: "DUPLO SMASH", cam: "carne-cima", fy: 0.7, side: 1, desktop: true },
-  { txt: "CHEDDAR DUPLO", cam: "carne-cima", fy: 0.32, side: -1, desktop: false, dyM: 14 },
-  { txt: "BACON", cam: "bacon-cebola", fy: 0.72, side: 1, desktop: false },
-  { txt: "CEBOLA CARAMELIZADA", cam: "bacon-cebola", fy: 0.22, side: -1, desktop: false, dyM: -16 },
-  { txt: "MAIONESE DA CASA", cam: "pao-cima", fy: 0.8, side: -1, desktop: true },
-  { txt: "PÃO BRIOCHE", cam: "pao-cima", fy: 0.4, side: 1, desktop: false },
+  { txt: "PÃO BRIOCHE", cam: "pao-baixo", fy: 0.55, side: 1, desktop: true },
+  { txt: "SMASH 120G", cam: "carne-baixo", fy: 0.55, side: 1, desktop: false },
+  { txt: "CHEDDAR", cam: "carne-baixo", fy: 0.25, side: -1, desktop: true },
+  { txt: "DUPLO SMASH", cam: "carne-cima", fy: 0.6, side: 1, desktop: true },
+  { txt: "CHEDDAR DUPLO", cam: "carne-cima", fy: 0.25, side: -1, desktop: false, dyM: 14 },
+  { txt: "BACON", cam: "bacon", fy: 0.6, side: 1, desktop: false },
+  { txt: "CEBOLA CARAMELIZADA", cam: "cebola", fy: 0.55, side: -1, desktop: false, dyM: -16 },
+  { txt: "MAIONESE DA CASA", cam: "pao-cima", fy: 0.62, side: -1, desktop: true },
+  { txt: "PÃO BRIOCHE", cam: "pao-cima", fy: 0.3, side: 1, desktop: false },
 ] as const;
 
 /* ------------------------------------------------------------ física */
@@ -99,7 +99,7 @@ export default function FotoBurger({ ctl, input, stage, mobile }: Props) {
   const texs = useTexture(ORDEM.map((n) => `/img/burger/${n}.webp`));
   const brilho = useMemo(() => spriteTexture(), []);
 
-  const altura = mobile ? 4.5 : 3.0; // altura do hambúrguer em unidades do mundo
+  const altura = mobile ? 4.7 : 3.2; // altura do hambúrguer em unidades do mundo
   const k = altura / LH;
   const largura = LW * k;
 
@@ -184,7 +184,7 @@ export default function FotoBurger({ ctl, input, stage, mobile }: Props) {
     const Hv = mobile ? 5.5 / aspect : Math.max(6.3, 8.6 / aspect);
     const cam = camera as THREE.PerspectiveCamera;
     const dist = Hv / 2 / Math.tan((cam.fov * Math.PI) / 360);
-    const ty = mobile ? -1.1 : 0.14;
+    const ty = mobile ? -1.15 : 0.1;
     cam.position.set(0, ty, dist);
     cam.lookAt(0, ty, 0);
     cam.updateMatrixWorld();
