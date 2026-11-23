@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { HERO, LINK_PEDIDO } from "@/lib/content";
-import type { Ctl } from "./hero/Burger";
+import type { Ctl } from "./hero/FotoBurger";
 
 const BurgerCanvas = dynamic(() => import("./hero/BurgerCanvas"), { ssr: false });
 
@@ -84,7 +84,7 @@ export default function Hero() {
       {modo === "foto" && (
         <div className="hero-foto">
           <div className="hero-foto-quadro">
-            <Image src="/img/bacon.webp" alt="Hambúrguer smash com bacon, cheddar derretendo e cebola caramelizada" width={693} height={858} priority unoptimized />
+            <Image src="/img/burger/montado.webp" alt="Johny Melt: dois smash com cheddar derretendo, bacon e cebola caramelizada no pão brioche" width={974} height={1039} priority unoptimized />
           </div>
         </div>
       )}

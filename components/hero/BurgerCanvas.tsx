@@ -3,7 +3,7 @@
 
 import { useEffect, useRef, useState, type MutableRefObject, type RefObject } from "react";
 import { Canvas } from "@react-three/fiber";
-import BurgerScene, { LABELS, type Ctl, type Input, type Stage } from "./Burger";
+import BurgerScene, { LABELS, type Ctl, type Input, type Stage } from "./FotoBurger";
 
 type Props = {
   ctl: MutableRefObject<Ctl>;
@@ -38,7 +38,7 @@ export default function BurgerCanvas({ ctl, heroRef, onFalha }: Props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  /* entrada: arrastar para girar 360°, inclinar seguindo o cursor */
+  /* entrada: arrastar para inclinar, seguir o cursor */
   useEffect(() => {
     const hero = heroRef.current;
     if (!hero) return;
@@ -100,7 +100,7 @@ export default function BurgerCanvas({ ctl, heroRef, onFalha }: Props) {
         <Canvas
           frameloop={visivel ? "always" : "never"}
           dpr={[1, mobile ? 1.5 : 2]}
-          shadows={mobile ? false : "percentage"}
+          flat
           camera={{ fov: 30, near: 0.1, far: 60, position: [0, 3, 9] }}
           gl={{ antialias: !mobile, alpha: true, powerPreference: "high-performance" }}
           onCreated={({ gl }) => {
