@@ -19,7 +19,6 @@ import {
   makeDrip,
   makeMayoMound,
   makeOnionStrand,
-  makeSesame,
   makePatty,
   meltCheese,
   pattyTexture,
@@ -118,7 +117,8 @@ export default function BurgerScene({ ctl, input, stage, mobile }: Props) {
     const seg = mobile ? 40 : 64;
     const cs = mobile ? 30 : 36;
     const rnd = mulberry32(77);
-    const pao = bunTextures();
+    const pao = bunTextures(mobile ? 384 : 512);
+    const segPao = mobile ? 56 : 96;
     const pt = pattyTexture();
     pt.repeat.set(3, 1);
     const bt = baconTexture();
@@ -134,14 +134,13 @@ export default function BurgerScene({ ctl, input, stage, mobile }: Props) {
       return {
         x: Math.cos(a) * r, z: Math.sin(a) * r, y: rnd() * 0.07,
         ry: rnd() * 6.28, tx: (rnd() - 0.5) * 0.3, tz: (rnd() - 0.5) * 0.3,
-        s: 0.8 + rnd() * 0.7, delay: (i / N) * 0.38 + rnd() * 0.06, spin: (rnd() - 0.5) * 8,
+        s: 1.0 + rnd() * 0.8, delay: (i / N) * 0.38 + rnd() * 0.06, spin: (rnd() - 0.5) * 8,
       };
     });
     return {
       geo: {
-        bunT: makeBunTop(1.28, 0.95, seg),
-        bunB: makeBunBottom(1.26, seg),
-        sesame: makeSesame(mobile ? 62 : 110),
+        bunT: makeBunTop(1.28, 0.95, segPao),
+        bunB: makeBunBottom(1.26, segPao),
         p1: makePatty(1.27, 0.22, 3, mobile ? 56 : 84),
         p2: makePatty(1.25, 0.22, 9, mobile ? 56 : 84),
         mound: makeMayoMound(seg),
@@ -153,9 +152,9 @@ export default function BurgerScene({ ctl, input, stage, mobile }: Props) {
       ch1,
       ch2,
       mat: {
-        bun: new THREE.MeshPhysicalMaterial({ vertexColors: true, map: pao.mapa, bumpMap: pao.bump, bumpScale: 1.5, roughness: 0.58, clearcoat: 0.5, clearcoatRoughness: 0.34, sheen: 0.5, sheenRoughness: 0.5, sheenColor: new THREE.Color("#ffd9a0") }),
+        bun: new THREE.MeshPhysicalMaterial({ vertexColors: true, map: pao.mapa, normalMap: pao.normal, normalScale: new THREE.Vector2(0.5, 0.5), roughnessMap: pao.rug, roughness: 0.5, metalness: 0, clearcoat: 0.45, clearcoatRoughness: 0.22, sheen: 0.35, sheenRoughness: 0.5, sheenColor: new THREE.Color("#ffb866"), specularIntensity: 1 }),
         patty: new THREE.MeshStandardMaterial({ vertexColors: true, map: pt, bumpMap: pt, bumpScale: 1.6, roughness: 0.7, metalness: 0.02, emissive: "#2a1006", emissiveIntensity: 0.35 }),
-        cheese: new THREE.MeshPhysicalMaterial({ color: "#f8a817", roughness: 0.3, clearcoat: 0.8, clearcoatRoughness: 0.25, emissive: "#b35a00", emissiveIntensity: 0.28, sheen: 0.6, sheenColor: new THREE.Color("#ffd56b") }),
+        cheese: new THREE.MeshPhysicalMaterial({ color: "#ee8a10", roughness: 0.3, clearcoat: 0.8, clearcoatRoughness: 0.25, emissive: "#b35a00", emissiveIntensity: 0.28, sheen: 0.3, sheenColor: new THREE.Color("#ff9a2a") }),
         mayo: new THREE.MeshPhysicalMaterial({ color: "#fff1d0", roughness: 0.22, clearcoat: 1, clearcoatRoughness: 0.12, emissive: "#6b5a38", emissiveIntensity: 0.2 }),
         onion: new THREE.MeshPhysicalMaterial({ color: "#ffffff", roughness: 0.28, clearcoat: 0.9, clearcoatRoughness: 0.2, emissive: "#3b1a00", emissiveIntensity: 0.35 }),
         bacon: new THREE.MeshPhysicalMaterial({ vertexColors: true, map: bt, roughness: 0.42, clearcoat: 0.4, clearcoatRoughness: 0.3 }),
@@ -199,7 +198,7 @@ export default function BurgerScene({ ctl, input, stage, mobile }: Props) {
 
   /* estado mutável do loop */
   const st = useRef({ rotY: 0.32, vel: 0, run: -1, m1: -1, m2: -1, act: 0, onionDone: false, time: 0, t: 0 });
-  const tmp = useMemo(() => ({ o: new THREE.Object3D(), v: new THREE.Vector3(), v2: new THREE.Vector3(), col: new THREE.Color(), c1: new THREE.Color("#6e3510"), c2: new THREE.Color("#cf9234") }), []);
+  const tmp = useMemo(() => ({ o: new THREE.Object3D(), v: new THREE.Vector3(), v2: new THREE.Vector3(), col: new THREE.Color(), c1: new THREE.Color("#85420f"), c2: new THREE.Color("#e4a63e") }), []);
   const dripAngles = useMemo(() => Array.from({ length: 7 }, (_, i) => (i / 7) * Math.PI * 2 + 0.3), []);
 
   /* cores individuais da cebola (uma vez, quando o InstancedMesh existe) */
@@ -460,7 +459,6 @@ export default function BurgerScene({ ctl, input, stage, mobile }: Props) {
 
             <group ref={gBunT} visible={false}>
               <mesh geometry={R.geo.bunT} material={R.mat.bun} castShadow={sh} receiveShadow={sh} />
-              <primitive object={R.geo.sesame} castShadow={sh} />
             </group>
           </group>
         </group>

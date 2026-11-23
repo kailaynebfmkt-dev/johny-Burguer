@@ -15,9 +15,9 @@ export const NAV = [
 ];
 
 export const HERO = {
-  titulo: "SMASH DE VERDADE.",
+  titulo: "JOHNY MELT",
   subtitulo:
-    "Pão brioche, carne smash 120g e cheddar duplo derretendo. Do jeito que tem que ser.",
+    "Dois smash de 120g, cheddar derretendo, bacon e cebola caramelizada no pão brioche.",
 };
 
 export const CARDAPIO = {

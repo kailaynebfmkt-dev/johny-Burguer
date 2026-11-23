@@ -8,3 +8,4 @@
 - Depuração: `?t=3.2` na URL congela a montagem 3D no segundo indicado.
 - [ ] **Texto da história**: o texto enviado terminava cortado ("em parceria com o nutricionista…"). A frase foi encurtada em `HISTORIA` (`lib/content.ts`); completar se quiserem citar o parceiro do JohnyFit.
 - [ ] **Instagram**: o link do site usa `johny.burger`, mas a busca achou o perfil `johny.burguer`. Confirmar qual é o correto.
+- [ ] **Nome do burger**: o título do hero agora é "JOHNY MELT" (pedido do cliente). A foto de referência (duplo smash, cheddar, bacon, cebola caramelizada e maionese) parece ser esse mesmo burger; confirmar se o card "BACON CARAMELIZADO" do cardápio deve virar "JOHNY MELT".
