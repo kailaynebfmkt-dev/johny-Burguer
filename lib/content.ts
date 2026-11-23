@@ -148,7 +148,7 @@ export const CONTATO = {
   endereco: "Av. Fernando Amaral, 301 — Centro, Tramandaí/RS",
   mapa: "https://www.google.com/maps/search/?api=1&query=Avenida+Fernando+Amaral+301+Tramanda%C3%AD+RS",
   mapaTexto: "Ver no Google Maps",
-  horario: "[INSERIR HORÁRIO]",
+  horario: "Todos os dias, das 17h às 23h",
 };
 
 export const RODAPE = {

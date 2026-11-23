@@ -45,6 +45,14 @@ const jsonLd = {
   servesCuisine: "Hambúrguer smash artesanal",
   image: `${SITE_URL}/og.png`,
   url: SITE_URL,
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      opens: "17:00",
+      closes: "23:00",
+    },
+  ],
   address: {
     "@type": "PostalAddress",
     streetAddress: "Av. Fernando Amaral, 301",
