@@ -45,6 +45,13 @@ const jsonLd = {
   servesCuisine: "Hambúrguer smash artesanal",
   image: `${SITE_URL}/og.png`,
   url: SITE_URL,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Rua Fernando Amaral, 301",
+    addressLocality: "Tramandaí",
+    addressRegion: "RS",
+    addressCountry: "BR",
+  },
   sameAs: ["https://www.instagram.com/johny.burger/"],
   menu: "https://johnyburguer.saipos.com/home",
 };

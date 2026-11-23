@@ -11,7 +11,7 @@ import * as THREE from "three";
 import { mulberry32 } from "@/lib/rng";
 import {
   baconTexture,
-  bunBumpTexture,
+  bunTextures,
   makeBacon,
   makeBunBottom,
   makeBunTop,
@@ -19,6 +19,7 @@ import {
   makeDrip,
   makeMayoMound,
   makeOnionStrand,
+  makeSesame,
   makePatty,
   meltCheese,
   pattyTexture,
@@ -117,8 +118,7 @@ export default function BurgerScene({ ctl, input, stage, mobile }: Props) {
     const seg = mobile ? 40 : 64;
     const cs = mobile ? 30 : 36;
     const rnd = mulberry32(77);
-    const bump = bunBumpTexture();
-    bump.repeat.set(4, 2);
+    const pao = bunTextures();
     const pt = pattyTexture();
     pt.repeat.set(3, 1);
     const bt = baconTexture();
@@ -141,6 +141,7 @@ export default function BurgerScene({ ctl, input, stage, mobile }: Props) {
       geo: {
         bunT: makeBunTop(1.28, 0.95, seg),
         bunB: makeBunBottom(1.26, seg),
+        sesame: makeSesame(mobile ? 62 : 110),
         p1: makePatty(1.27, 0.22, 3, mobile ? 56 : 84),
         p2: makePatty(1.25, 0.22, 9, mobile ? 56 : 84),
         mound: makeMayoMound(seg),
@@ -152,7 +153,7 @@ export default function BurgerScene({ ctl, input, stage, mobile }: Props) {
       ch1,
       ch2,
       mat: {
-        bun: new THREE.MeshPhysicalMaterial({ vertexColors: true, roughness: 0.4, clearcoat: 0.9, clearcoatRoughness: 0.22, bumpMap: bump, bumpScale: 0.5 }),
+        bun: new THREE.MeshPhysicalMaterial({ vertexColors: true, map: pao.mapa, bumpMap: pao.bump, bumpScale: 1.5, roughness: 0.58, clearcoat: 0.5, clearcoatRoughness: 0.34, sheen: 0.5, sheenRoughness: 0.5, sheenColor: new THREE.Color("#ffd9a0") }),
         patty: new THREE.MeshStandardMaterial({ vertexColors: true, map: pt, bumpMap: pt, bumpScale: 1.6, roughness: 0.7, metalness: 0.02, emissive: "#2a1006", emissiveIntensity: 0.35 }),
         cheese: new THREE.MeshPhysicalMaterial({ color: "#f8a817", roughness: 0.3, clearcoat: 0.8, clearcoatRoughness: 0.25, emissive: "#b35a00", emissiveIntensity: 0.28, sheen: 0.6, sheenColor: new THREE.Color("#ffd56b") }),
         mayo: new THREE.MeshPhysicalMaterial({ color: "#fff1d0", roughness: 0.22, clearcoat: 1, clearcoatRoughness: 0.12, emissive: "#6b5a38", emissiveIntensity: 0.2 }),
@@ -459,6 +460,7 @@ export default function BurgerScene({ ctl, input, stage, mobile }: Props) {
 
             <group ref={gBunT} visible={false}>
               <mesh geometry={R.geo.bunT} material={R.mat.bun} castShadow={sh} receiveShadow={sh} />
+              <primitive object={R.geo.sesame} castShadow={sh} />
             </group>
           </group>
         </group>

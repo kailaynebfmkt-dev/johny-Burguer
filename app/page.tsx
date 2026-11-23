@@ -1,5 +1,5 @@
 import Hero from "@/components/Hero";
-import { Cardapio, Combo, Contato, Galeria, Rodape, Sobre } from "@/components/Sections";
+import { Cardapio, Combo, Contato, Galeria, Historia, Rodape, Sobre } from "@/components/Sections";
 
 export default function Home() {
   return (
@@ -8,6 +8,7 @@ export default function Home() {
       <Cardapio />
       <Combo />
       <Sobre />
+      <Historia />
       <Galeria />
       <Contato />
       <Rodape />

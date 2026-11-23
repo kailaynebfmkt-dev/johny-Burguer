@@ -4,6 +4,7 @@ import {
   COMBO,
   CONTATO,
   GALERIA,
+  HISTORIA,
   LINK_CONTATO,
   LINK_INSTAGRAM,
   LINK_PEDIDO,
@@ -163,6 +164,34 @@ export function Sobre() {
   );
 }
 
+/* ------------------------------------------------ HISTÓRIA */
+export function Historia() {
+  return (
+    <section id="historia" className="secao historia">
+      <div className="container">
+        <span className="secao-kicker">Quem somos</span>
+        <h2 className="secao-titulo">
+          NOSSA <em>HISTÓRIA</em>
+        </h2>
+        <p className="historia-intro">{HISTORIA.intro}</p>
+
+        <ol className="linha-tempo">
+          {HISTORIA.marcos.map((m, i) => (
+            <li className="marco" key={m.titulo} style={{ "--i": i } as React.CSSProperties}>
+              <span className="marco-ponto" aria-hidden="true" />
+              <div className="marco-card">
+                <span className="marco-quando">{m.quando}</span>
+                <h3>{m.titulo}</h3>
+                <p>{m.texto}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}
+
 /* ------------------------------------------------ GALERIA */
 export function Galeria() {
   return (
@@ -213,6 +242,9 @@ export function Contato() {
             <div>
               <h3>Endereço</h3>
               <p>{CONTATO.endereco}</p>
+              <a className="info-link" href={CONTATO.mapa} {...ext}>
+                {CONTATO.mapaTexto} →
+              </a>
             </div>
           </div>
           <div className="info">

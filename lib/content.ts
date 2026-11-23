@@ -10,6 +10,7 @@ export const NAV = [
   { href: "#cardapio", label: "Cardápio" },
   { href: "#combo", label: "Combo" },
   { href: "#sobre", label: "Sobre" },
+  { href: "#historia", label: "Nossa história" },
   { href: "#contato", label: "Contato" },
 ];
 
@@ -89,6 +90,44 @@ export const SOBRE = {
   marquee: ["SMASH", "CHEDDAR", "BACON", "BRIOCHE", "CRINKLE"],
 };
 
+export const HISTORIA = {
+  titulo: "NOSSA HISTÓRIA",
+  intro:
+    "O Johny Burger em Tramandaí começou de forma simples no delivery, por volta de 2022, e cresceu até se tornar um ponto físico no Centro da cidade, com foco em smash burgers, crepes e entradas.",
+  marcos: [
+    {
+      quando: "2022",
+      titulo: "Tudo começou no delivery",
+      texto:
+        "A operação nasceu com poucas opções de lanches, atendendo amigos, familiares e os primeiros clientes locais, antes de abrir um espaço físico.",
+    },
+    {
+      quando: "Todo mês",
+      titulo: "O primeiro burger do mês",
+      texto:
+        "O Johny Honey inaugurou a linha especial mensal da casa e segue sendo resgatado como um clássico de edição limitada.",
+    },
+    {
+      quando: "Centro",
+      titulo: "Ponto na Fernando Amaral",
+      texto:
+        "A marca marcou presença na Fernando Amaral, 291, incluindo atuação vinculada ao Villa Manggiare, e firmou o nome no Centro de Tramandaí.",
+    },
+    {
+      quando: "Julho de 2025",
+      titulo: "Casa nova, no 301",
+      texto:
+        "A abertura da nova casa na Fernando Amaral, 301, foi celebrada com música ao vivo e chopp.",
+    },
+    {
+      quando: "Hoje",
+      titulo: "Um cardápio que cresceu",
+      texto:
+        "Além dos smash burgers de 1 a 3 carnes, entraram porções como a batata especial e a almofadinha de queijo gouda, os crepes e opções como o JohnyFit.",
+    },
+  ],
+};
+
 export const GALERIA = {
   titulo: "SEGUE O JOHNY",
   botao: "@johny.burger no Instagram",
@@ -106,7 +145,9 @@ export const CONTATO = {
   titulo: "BATEU A FOME?",
   pedir: "FAZER PEDIDO",
   falar: "FALE COM A GENTE",
-  endereco: "[INSERIR ENDEREÇO]",
+  endereco: "Rua Fernando Amaral, 301 — Centro, Tramandaí/RS",
+  mapa: "https://www.google.com/maps/search/?api=1&query=Rua+Fernando+Amaral+301+Tramanda%C3%AD+RS",
+  mapaTexto: "Ver no Google Maps",
   horario: "[INSERIR HORÁRIO]",
 };
 
