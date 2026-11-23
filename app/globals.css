@@ -461,6 +461,11 @@ section[id] {
   pointer-events: none;
 }
 
+/* o título fica ATRÁS do hambúrguer (a tela 3D, z-index 1, passa na frente dele) */
+.hero-topo {
+  z-index: 0;
+}
+
 .hero-base a,
 .hero-base button,
 .hero-restart {

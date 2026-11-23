@@ -33,14 +33,14 @@ const REGRAS = {
 };
 
 // ordem de baixo para cima e deslocamento (em px da foto) ao fechar os vãos na montagem
-const DESCE = 55; // o miolo todo desce para apoiar no pão de baixo
+const DESCE = 0; // 0 = camadas separadas, como na foto (valores positivos fecham os vãos)
 const ORDEM = [
   ["pao-baixo", 0],
   ["carne-baixo", DESCE],
   ["carne-cima", DESCE],
   ["bacon", DESCE],
-  ["cebola", DESCE + 22],
-  ["pao-cima", DESCE + 74], // desce um pouco mais para a maionese cair sobre a cebola
+  ["cebola", DESCE],
+  ["pao-cima", DESCE],
 ];
 
 const camadas = [];
